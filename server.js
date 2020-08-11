@@ -21,7 +21,6 @@ app.use(express.urlencoded({ extended: false }));
 app.post('/process_form', function (req, res) {
     // Prepare output in JSON format
     console.log('Got body:', req.body);
-    res.sendStatus(200);
     phone_number = req.body.phone_number
     //res.end(JSON.stringify(response));
     client.messages.create({
@@ -29,6 +28,7 @@ app.post('/process_form', function (req, res) {
     to: phone_number,
     body: "You just sent an SMS from Node.js using Twilio!"
 }).then((messsage) => console.log(message.sid));
+    res.sendStatus(200);
 })
 
 var serve_app = app.listen(port, function () {
