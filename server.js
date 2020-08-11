@@ -26,7 +26,7 @@ app.post('/process_form', function (req, res) {
     //res.end(JSON.stringify(response));
     client.messages.create({
     from: process.env.TWILIO_PHONE_NUMBER,
-    to: process.env.CELL_PHONE_NUMBER,
+    to: phone_number,
     body: "You just sent an SMS from Node.js using Twilio!"
 }).then((messsage) => console.log(message.sid));
 })
